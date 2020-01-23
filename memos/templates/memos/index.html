@@ -1,0 +1,18 @@
+<h2>メモ一覧</h2>
+{% if memo_list %}
+    <ul>
+    {% for memo in memo_list %}
+        <li><a href="/{{ memo.id }}/">{{ memo.id }}:{{ memo.text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No memos are available.</p>
+{% endif %}
+
+<h2>メモの作成</h2>
+<form method="POST" action="insert">
+  {% csrf_token %}
+  <input type="text" name="memo" />
+  <input type="submit" value="送信" />
+</form> 
+
