@@ -1,3 +1,10 @@
+<h2>メモの作成</h2>
+<form method="POST" action="insert">
+  {% csrf_token %}
+  <input type="text" name="memo" />
+  <input type="submit" value="送信" />
+</form> 
+
 <h2>メモ一覧</h2>
 {% if memo_list %}
     <ul>
@@ -8,11 +15,4 @@
 {% else %}
     <p>No memos are available.</p>
 {% endif %}
-
-<h2>メモの作成</h2>
-<form method="POST" action="insert">
-  {% csrf_token %}
-  <input type="text" name="memo" />
-  <input type="submit" value="送信" />
-</form> 
 
